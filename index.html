@@ -529,6 +529,68 @@
       color: var(--muted);
     }
 
+    .register-form {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .register-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .register-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .register-field label {
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .register-field input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid #cfd8ce;
+      border-radius: 10px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .register-form .button {
+      justify-self: start;
+      border: 0;
+      background: var(--forest);
+      color: white;
+      cursor: pointer;
+    }
+
+    .register-form .button:hover {
+      background: var(--leaf);
+    }
+
+    .register-demo-note,
+    .register-message {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .register-message {
+      color: var(--forest);
+    }
+
     .login-info {
       display: flex;
       align-items: center;
@@ -718,7 +780,8 @@
 
     @media (max-width: 420px) {
       .timeline,
-      .gallery-grid {
+      .gallery-grid,
+      .register-fields {
         grid-template-columns: 1fr;
       }
 
@@ -968,14 +1031,36 @@
     <section class="section section-soft" id="register">
       <div class="container register-wrap">
         <div class="register-copy">
-          <p class="eyebrow">Get involved</p>
-          <h2>Want to take part?</h2>
+          <p class="eyebrow">Demo registration</p>
+          <h2>Register your interest</h2>
           <p>
             Volunteers can support planting activities and help protect and
-            nurture trees in their locality. This website shares project
-            information but does not collect registrations online.
+            nurture trees in their locality.
           </p>
         </div>
+        <form class="register-form" id="volunteer-form">
+          <div class="register-fields">
+            <div class="register-field">
+              <label for="volunteer-name">Full name</label>
+              <input id="volunteer-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="register-field">
+              <label for="volunteer-username">Username</label>
+              <input id="volunteer-username" name="username" autocomplete="username" required>
+            </div>
+            <div class="register-field">
+              <label for="volunteer-email">Email address</label>
+              <input id="volunteer-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="register-field">
+              <label for="volunteer-password">Password</label>
+              <input id="volunteer-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+            </div>
+          </div>
+          <p class="register-demo-note">Demo form only: registration does not create an account or send or save your details. Use a made-up password—never enter a real one.</p>
+          <button class="button" type="submit">Preview registration</button>
+          <p class="register-message" id="register-message" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -983,13 +1068,13 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Team information</p>
-          <h2>Login &amp; contact details</h2>
+          <h2>Project team details</h2>
           <p>Website access and public information about the project team.</p>
         </div>
         <aside class="login-info" aria-label="Website login instructions">
           <div>
             <h3>No login is required</h3>
-            <p>All project information is public. Open the website directly—there is no username, password, or account sign-in for this site. The contact fields below are not website login credentials.</p>
+            <p>All project information is public. Open the website directly—there is no account sign-in for this site. The form above is only a demo and does not create an account.</p>
           </div>
           <span aria-hidden="true">🔓</span>
         </aside>
@@ -997,14 +1082,6 @@
           <div>
             <dt>Team name</dt>
             <dd>Team Grow Green</dd>
-          </div>
-          <div>
-            <dt>Username</dt>
-            <dd>Not provided</dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd>Not provided</dd>
           </div>
           <div>
             <dt>Project location</dt>
@@ -1032,5 +1109,16 @@
   <footer>
     <p>© 2026 The Tree Plantation · Growing a greener future through community action</p>
   </footer>
+  <script>
+    const volunteerForm = document.querySelector("#volunteer-form");
+    const registerMessage = document.querySelector("#register-message");
+
+    volunteerForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!volunteerForm.reportValidity()) return;
+      volunteerForm.reset();
+      registerMessage.textContent = "Demo only: no account was created and no details were sent or saved.";
+    });
+  </script>
 </body>
 </html>
