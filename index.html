@@ -553,6 +553,34 @@
       font-size: 0.92rem;
     }
 
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+      gap: 14px;
+      margin: 22px 0 0;
+    }
+
+    .project-details div {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .project-details dt {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-details dd {
+      margin: 5px 0 0;
+      color: var(--forest);
+      font-weight: 700;
+    }
+
     .contact-card {
       display: flex;
       align-items: center;
@@ -954,17 +982,35 @@
     <section class="section" id="login">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Access information</p>
-          <h2>Login details</h2>
-          <p>Follow these instructions to access the project website.</p>
+          <p class="eyebrow">Team information</p>
+          <h2>Login &amp; contact details</h2>
+          <p>Website access and public information about the project team.</p>
         </div>
         <aside class="login-info" aria-label="Website login instructions">
           <div>
             <h3>No login is required</h3>
-            <p>All project information is public. Open the website directly—there is no username, password, or account sign-in for this site. Never enter or share a password here.</p>
+            <p>All project information is public. Open the website directly—there is no username, password, or account sign-in for this site. The contact fields below are not website login credentials.</p>
           </div>
           <span aria-hidden="true">🔓</span>
         </aside>
+        <dl class="project-details" aria-label="Team and project contact details">
+          <div>
+            <dt>Team name</dt>
+            <dd>Team Grow Green</dd>
+          </div>
+          <div>
+            <dt>Username</dt>
+            <dd>Not provided</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd>Not provided</dd>
+          </div>
+          <div>
+            <dt>Project location</dt>
+            <dd>Brahmadevam, Nellore, Andhra Pradesh</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
