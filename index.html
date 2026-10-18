@@ -259,6 +259,44 @@
       font-size: 1.03rem;
     }
 
+    .map-frame {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 380px;
+      border: 0;
+    }
+
+    .map-details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+    }
+
+    .map-details p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .map-details a {
+      color: var(--leaf);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .map-details a:hover {
+      text-decoration: underline;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -643,7 +681,8 @@
       }
 
       .contact-card,
-      .login-info {
+      .login-info,
+      .map-details {
         align-items: flex-start;
         flex-direction: column;
       }
@@ -685,6 +724,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="index.html#plants">Plants &amp; Offset</a>
         <a href="index.html#project">Projects</a>
+        <a href="index.html#location">Location</a>
         <a href="about.html">About us</a>
         <a href="index.html#gallery">Gallery</a>
         <a class="nav-cta" href="index.html#register">Get involved</a>
@@ -796,6 +836,29 @@
               <li>Local participation and follow-up are essential after a planting drive.</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="location">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Project location</p>
+          <h2>Find us in Brahmadevam</h2>
+          <p>Explore the project area in Nellore, Andhra Pradesh.</p>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://maps.google.com/maps?q=Brahmadevam%2C%20Nellore%2C%20Andhra%20Pradesh&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            title="Map showing Brahmadevam, Nellore, Andhra Pradesh"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="map-details">
+            <p><strong>Brahmadevam</strong><br>Nellore, Andhra Pradesh</p>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Brahmadevam%2C%20Nellore%2C%20Andhra%20Pradesh" target="_blank" rel="noopener noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>
