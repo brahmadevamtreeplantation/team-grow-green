@@ -1091,16 +1091,24 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Team information</p>
-          <h2>Project team details</h2>
-          <p>Website access and public information about the project team.</p>
+          <h2>Login form &amp; project details</h2>
+          <p>Use the demo sign-in form or view the project team information.</p>
         </div>
-        <aside class="login-info" aria-label="Website login instructions">
-          <div>
-            <h3>No login is required</h3>
-            <p>All project information is public. Open the website directly—there is no account sign-in for this site. The form above is only a demo and does not create an account.</p>
+        <form class="register-form" id="login-form" autocomplete="off">
+          <div class="register-fields">
+            <div class="register-field">
+              <label for="login-username">Username or email</label>
+              <input id="login-username" name="login-username" autocomplete="off" required>
+            </div>
+            <div class="register-field">
+              <label for="login-password">Password</label>
+              <input id="login-password" name="login-password" type="password" autocomplete="off" required>
+            </div>
           </div>
-          <span aria-hidden="true">🔓</span>
-        </aside>
+          <p class="register-demo-note">Demo form only: this site has no login service. Do not enter a real username, email, or password; nothing is sent or saved.</p>
+          <button class="button" type="submit">Sign in (demo)</button>
+          <p class="register-message" id="login-message" aria-live="polite"></p>
+        </form>
         <dl class="project-details" aria-label="Team and project contact details">
           <div>
             <dt>Team name</dt>
@@ -1135,12 +1143,21 @@
   <script>
     const volunteerForm = document.querySelector("#volunteer-form");
     const registerMessage = document.querySelector("#register-message");
+    const loginForm = document.querySelector("#login-form");
+    const loginMessage = document.querySelector("#login-message");
 
     volunteerForm.addEventListener("submit", (event) => {
       event.preventDefault();
       if (!volunteerForm.reportValidity()) return;
       volunteerForm.reset();
       registerMessage.textContent = "Demo only: no account was created and no details were sent or saved.";
+    });
+
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!loginForm.reportValidity()) return;
+      loginForm.reset();
+      loginMessage.textContent = "Demo only: no sign-in occurred and no credentials were sent or saved.";
     });
   </script>
 </body>
