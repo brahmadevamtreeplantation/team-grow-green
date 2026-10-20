@@ -580,7 +580,7 @@
       background: var(--leaf);
     }
 
-    .register-demo-note,
+    .form-note,
     .register-message {
       margin: 0;
       color: var(--muted);
@@ -1055,7 +1055,7 @@
     <section class="section section-soft" id="register">
       <div class="container register-wrap">
         <div class="register-copy">
-          <p class="eyebrow">Demo registration</p>
+          <p class="eyebrow">Volunteer registration</p>
           <h2>Register your interest</h2>
           <p>
             Volunteers can support planting activities and help protect and
@@ -1081,7 +1081,7 @@
               <input id="volunteer-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
             </div>
           </div>
-          <p class="register-demo-note">Demo form only: registration does not create an account or send or save your details. Use a made-up password—never enter a real one.</p>
+          <p class="form-note">This form does not create an account or send or save your details. Use a made-up password—never enter a real one.</p>
           <p class="register-message" id="register-message" aria-live="polite"></p>
         </form>
       </div>
@@ -1092,7 +1092,7 @@
         <div class="section-heading">
           <p class="eyebrow">Team information</p>
           <h2>Login form &amp; project details</h2>
-          <p>Use the demo sign-in form or view the project team information.</p>
+          <p>Sign-in form and project team information.</p>
         </div>
         <form class="register-form" id="login-form" autocomplete="off">
           <div class="register-fields">
@@ -1105,8 +1105,8 @@
               <input id="login-password" name="login-password" type="password" autocomplete="off" required>
             </div>
           </div>
-          <p class="register-demo-note">Demo form only: this site has no login service. Do not enter a real username, email, or password; nothing is sent or saved.</p>
-          <button class="button" type="submit">Sign in (demo)</button>
+          <p class="form-note">This site has no login service. Do not enter a real username, email, or password; nothing is sent or saved.</p>
+          <button class="button" type="submit">Sign in</button>
           <p class="register-message" id="login-message" aria-live="polite"></p>
         </form>
         <dl class="project-details" aria-label="Team and project contact details">
@@ -1150,14 +1150,14 @@
       event.preventDefault();
       if (!volunteerForm.reportValidity()) return;
       volunteerForm.reset();
-      registerMessage.textContent = "Demo only: no account was created and no details were sent or saved.";
+      registerMessage.textContent = "No account was created and no details were sent or saved.";
     });
 
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       if (!loginForm.reportValidity()) return;
       loginForm.reset();
-      loginMessage.textContent = "Demo only: no sign-in occurred and no credentials were sent or saved.";
+      loginMessage.textContent = "No sign-in occurred and no credentials were sent or saved.";
     });
   </script>
 </body>
