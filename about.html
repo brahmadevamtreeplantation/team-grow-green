@@ -294,6 +294,31 @@
       margin-top: 12px;
     }
 
+    .team-photo {
+      max-width: 960px;
+      margin: 24px auto 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #dce8d9;
+      box-shadow: var(--shadow);
+    }
+
+    .team-photo img {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      object-fit: cover;
+      object-position: center 42%;
+    }
+
+    .team-photo figcaption {
+      padding: 13px 18px;
+      background: white;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
     .member-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -549,6 +574,10 @@
         <div class="team-message">
           <p>Our CSP group members:</p>
         </div>
+        <figure class="team-photo">
+          <img src="images/gallery/project-team-nursery.jpg" alt="The Tree Plantation project team standing together among young plants at a nursery in Nellore" loading="lazy">
+          <figcaption>Team Grow Green at the plant nursery in Nellore</figcaption>
+        </figure>
         <ul class="member-list" aria-label="Community Service Project group members">
           <li class="team-leader">K. Hema Vardhan<small>Project Leader</small></li>
           <li>K. Ajay</li>
